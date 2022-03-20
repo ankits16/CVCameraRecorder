@@ -16,6 +16,13 @@
 		BC72765127E73C0B00C7A5D9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC72765027E73C0B00C7A5D9 /* README.md */; };
 		BC72765427E73C5500C7A5D9 /* CVRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72765327E73C5500C7A5D9 /* CVRecorderView.swift */; };
 		BC72765827E781BA00C7A5D9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC72765727E781BA00C7A5D9 /* Media.xcassets */; };
+		BC72765A27E78D4600C7A5D9 /* yolov4pretrained.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = BC72765927E78D4600C7A5D9 /* yolov4pretrained.mlpackage */; };
+		BC72765C27E78F2E00C7A5D9 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72765B27E78F2D00C7A5D9 /* YOLO.swift */; };
+		BC72765E27E78F8C00C7A5D9 /* YOLO4Tiny.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72765D27E78F8C00C7A5D9 /* YOLO4Tiny.swift */; };
+		BC72766027E7903000C7A5D9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72765F27E7903000C7A5D9 /* Helpers.swift */; };
+		BC72766227E7903600C7A5D9 /* CVPiexlBuffer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72766127E7903600C7A5D9 /* CVPiexlBuffer+Helpers.swift */; };
+		BC72766427E7903C00C7A5D9 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72766327E7903B00C7A5D9 /* UIImage+CVPixelBuffer.swift */; };
+		BC72766627E791A100C7A5D9 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72766527E791A000C7A5D9 /* BoundingBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,13 @@
 		BC72765327E73C5500C7A5D9 /* CVRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVRecorderView.swift; sourceTree = "<group>"; };
 		BC72765627E7509900C7A5D9 /* CVCamRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CVCamRecorder.entitlements; sourceTree = "<group>"; };
 		BC72765727E781BA00C7A5D9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		BC72765927E78D4600C7A5D9 /* yolov4pretrained.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = yolov4pretrained.mlpackage; sourceTree = "<group>"; };
+		BC72765B27E78F2D00C7A5D9 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
+		BC72765D27E78F8C00C7A5D9 /* YOLO4Tiny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO4Tiny.swift; sourceTree = "<group>"; };
+		BC72765F27E7903000C7A5D9 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		BC72766127E7903600C7A5D9 /* CVPiexlBuffer+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPiexlBuffer+Helpers.swift"; sourceTree = "<group>"; };
+		BC72766327E7903B00C7A5D9 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		BC72766527E791A000C7A5D9 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +82,18 @@
 				BC72763A27E73B6E00C7A5D9 /* AppDelegate.swift */,
 				BC72763C27E73B6E00C7A5D9 /* SceneDelegate.swift */,
 				BC72763E27E73B6E00C7A5D9 /* ViewController.swift */,
+				BC72765B27E78F2D00C7A5D9 /* YOLO.swift */,
+				BC72766527E791A000C7A5D9 /* BoundingBox.swift */,
+				BC72765D27E78F8C00C7A5D9 /* YOLO4Tiny.swift */,
+				BC72765F27E7903000C7A5D9 /* Helpers.swift */,
+				BC72766127E7903600C7A5D9 /* CVPiexlBuffer+Helpers.swift */,
+				BC72766327E7903B00C7A5D9 /* UIImage+CVPixelBuffer.swift */,
 				BC72764027E73B6E00C7A5D9 /* Main.storyboard */,
 				BC72764327E73B7000C7A5D9 /* Assets.xcassets */,
 				BC72764527E73B7000C7A5D9 /* LaunchScreen.storyboard */,
 				BC72764827E73B7000C7A5D9 /* Info.plist */,
 				BC72765027E73C0B00C7A5D9 /* README.md */,
+				BC72765927E78D4600C7A5D9 /* yolov4pretrained.mlpackage */,
 			);
 			path = CVCamRecorder;
 			sourceTree = "<group>";
@@ -159,10 +180,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC72765E27E78F8C00C7A5D9 /* YOLO4Tiny.swift in Sources */,
+				BC72765A27E78D4600C7A5D9 /* yolov4pretrained.mlpackage in Sources */,
 				BC72763F27E73B6E00C7A5D9 /* ViewController.swift in Sources */,
+				BC72766627E791A100C7A5D9 /* BoundingBox.swift in Sources */,
+				BC72766027E7903000C7A5D9 /* Helpers.swift in Sources */,
+				BC72765C27E78F2E00C7A5D9 /* YOLO.swift in Sources */,
 				BC72765427E73C5500C7A5D9 /* CVRecorderView.swift in Sources */,
 				BC72763B27E73B6E00C7A5D9 /* AppDelegate.swift in Sources */,
+				BC72766427E7903C00C7A5D9 /* UIImage+CVPixelBuffer.swift in Sources */,
 				BC72763D27E73B6E00C7A5D9 /* SceneDelegate.swift in Sources */,
+				BC72766227E7903600C7A5D9 /* CVPiexlBuffer+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +346,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,7 +376,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -11,6 +11,9 @@ import AVFoundation
 import ImageIO
 import Photos
 
+ protocol VideoCaptureDelegate: AnyObject {
+    func videoCapture(_ capture: RecorderView, didCaptureVideoFrame: CVPixelBuffer?, timestamp: CMTime)
+}
 
 final class RecorderView: UIView {
     
@@ -32,14 +35,9 @@ final class RecorderView: UIView {
     fileprivate var sessionAtSourceTime: CMTime?
     
     
-    fileprivate lazy var faceDetector = CIDetector(ofType: CIDetectorTypeFace,
-                                                     context: nil,
-                                                     options: [
-                                                          CIDetectorAccuracy: CIDetectorAccuracyHigh,
-                                                          CIDetectorTracking: true
-                                                     ])!
-    var faceLayer : CALayer!
-    
+    var lastTimestamp = CMTime()
+    public weak var delegate: VideoCaptureDelegate?
+    public var fps = 15
     
     func setupCamera() {
         //The size of output video will be 720x1280
@@ -100,6 +98,7 @@ final class RecorderView: UIView {
                 videoDataOutput.setSampleBufferDelegate(self, queue: queue)
                 cameraSession.addOutput(videoDataOutput)
             }
+            videoDataOutput.connection(with: AVMediaType.video)?.videoOrientation = .portrait
             
             //Define your audio output
             if cameraSession.canAddOutput(audioDataOutput) {
@@ -139,15 +138,15 @@ final class RecorderView: UIView {
             //Add video input
             videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: [
                 AVVideoCodecKey: AVVideoCodecH264,
-                AVVideoWidthKey: bounds.height,
-                AVVideoHeightKey: bounds.width,
+                AVVideoWidthKey: bounds.width,
+                AVVideoHeightKey: bounds.height,
                 AVVideoCompressionPropertiesKey: [
                     AVVideoAverageBitRateKey: 2300000,
                 ],
             ])
             videoWriterInput.mediaTimeScale = CMTimeScale(bitPattern: 600)
             videoWriterInput.expectsMediaDataInRealTime = true
-            videoWriterInput.transform = CGAffineTransform(rotationAngle: .pi/2)
+//            videoWriterInput.transform = CGAffineTransform(rotationAngle: .pi/2)
             
             videoWriterInput.expectsMediaDataInRealTime = true //Make sure we are exporting data at realtime
             if videoWriter.canAdd(videoWriterInput) {
@@ -209,6 +208,14 @@ extension RecorderView : AVCaptureAudioDataOutputSampleBufferDelegate, AVCapture
                 //Write video buffer
                 print("<<<<<<  videoWriterInput.append(")
                 videoWriterInput.append(sampleBuffer)
+                let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+                let deltaTime = timestamp - lastTimestamp
+                if deltaTime >= CMTimeMake(value: 1, timescale: Int32(fps)) {
+                    lastTimestamp = timestamp
+                    let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+                    //        print("fps\(timestamp)")
+                    delegate?.videoCapture(self, didCaptureVideoFrame: imageBuffer, timestamp: timestamp)
+                }
             }
         } else if writable,
                   output == audioDataOutput,
