@@ -14,6 +14,8 @@
 		BC72764427E73B7000C7A5D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC72764327E73B7000C7A5D9 /* Assets.xcassets */; };
 		BC72764727E73B7000C7A5D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC72764527E73B7000C7A5D9 /* LaunchScreen.storyboard */; };
 		BC72765127E73C0B00C7A5D9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC72765027E73C0B00C7A5D9 /* README.md */; };
+		BC72765427E73C5500C7A5D9 /* CVRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC72765327E73C5500C7A5D9 /* CVRecorderView.swift */; };
+		BC72765827E781BA00C7A5D9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC72765727E781BA00C7A5D9 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		BC72764627E73B7000C7A5D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC72764827E73B7000C7A5D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC72765027E73C0B00C7A5D9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		BC72765327E73C5500C7A5D9 /* CVRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVRecorderView.swift; sourceTree = "<group>"; };
+		BC72765627E7509900C7A5D9 /* CVCamRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CVCamRecorder.entitlements; sourceTree = "<group>"; };
+		BC72765727E781BA00C7A5D9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,8 @@
 		BC72763927E73B6E00C7A5D9 /* CVCamRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				BC72765627E7509900C7A5D9 /* CVCamRecorder.entitlements */,
+				BC72765227E73C3800C7A5D9 /* Recorder View */,
 				BC72763A27E73B6E00C7A5D9 /* AppDelegate.swift */,
 				BC72763C27E73B6E00C7A5D9 /* SceneDelegate.swift */,
 				BC72763E27E73B6E00C7A5D9 /* ViewController.swift */,
@@ -68,6 +75,15 @@
 				BC72765027E73C0B00C7A5D9 /* README.md */,
 			);
 			path = CVCamRecorder;
+			sourceTree = "<group>";
+		};
+		BC72765227E73C3800C7A5D9 /* Recorder View */ = {
+			isa = PBXGroup;
+			children = (
+				BC72765327E73C5500C7A5D9 /* CVRecorderView.swift */,
+				BC72765727E781BA00C7A5D9 /* Media.xcassets */,
+			);
+			path = "Recorder View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC72765827E781BA00C7A5D9 /* Media.xcassets in Resources */,
 				BC72764727E73B7000C7A5D9 /* LaunchScreen.storyboard in Resources */,
 				BC72764427E73B7000C7A5D9 /* Assets.xcassets in Resources */,
 				BC72765127E73C0B00C7A5D9 /* README.md in Resources */,
@@ -143,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC72763F27E73B6E00C7A5D9 /* ViewController.swift in Sources */,
+				BC72765427E73C5500C7A5D9 /* CVRecorderView.swift in Sources */,
 				BC72763B27E73B6E00C7A5D9 /* AppDelegate.swift in Sources */,
 				BC72763D27E73B6E00C7A5D9 /* SceneDelegate.swift in Sources */,
 			);
@@ -289,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CVCamRecorder/CVCamRecorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P444KAF92;
@@ -299,6 +318,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CVCamRecorder/CVCamRecorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5P444KAF92;
@@ -327,6 +348,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

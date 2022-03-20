@@ -9,4 +9,5 @@ Following things will be tried:
 
 # Credits
 1) https://geek-is-stupid.github.io/2017-06-14-how-to-record-detect-faces-overlay-video-at-real-time-using-swift/
-2) https://github.com/PROGrand/yolo-coreml 
+2) https://github.com/PROGrand/yolo-coreml
+3) https://gist.github.com/yusuke024/b5cd3909d9d7f9e919291491f6b381f0
